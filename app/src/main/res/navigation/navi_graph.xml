@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.wzp.recepicapp.presentation.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/nav_home_to_splash"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.wzp.recepicapp.presentation.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/nav_splash_to_login"
+            app:destination="@id/nav_login"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/nav_splash_to_home"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <navigation
+        android:id="@+id/nav_login"
+        app:startDestination="@id/loginFragment">
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.wzp.recepicapp.presentation.login.LoginFragment"
+            android:label="fragment_login"
+            tools:layout="@layout/fragment_login">
+            <action
+                android:id="@+id/nav_login_to_regist"
+                app:destination="@id/registFragment"
+                app:popUpTo="@id/loginFragment"/>
+            <action
+                android:id="@+id/nav_login_to_home"
+                app:destination="@id/homeFragment"
+                app:popUpTo="@id/loginFragment"
+                app:popUpToInclusive="true"/>
+        </fragment>
+        <fragment
+            android:id="@+id/registFragment"
+            android:name="com.wzp.recepicapp.presentation.regist.RegistFragment"
+            android:label="fragment_regist"
+            tools:layout="@layout/fragment_regist">
+            <action
+                android:id="@+id/nav_regist_to_login"
+                app:destination="@id/loginFragment"
+                app:popUpTo="@id/registFragment"
+                app:popUpToInclusive="true"/>
+        </fragment>
+        <action
+            android:id="@+id/action_global_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+
+    </navigation>
+
+
+</navigation>
