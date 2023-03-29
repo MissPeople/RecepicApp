@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(){
+class HomeFragment : Fragment() {
 
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     private val viewModel by viewModels<HomeViewModel>()
@@ -34,8 +34,8 @@ class HomeFragment : Fragment(){
         lifecycleScope.launchWhenStarted {
             launch {
                 viewModel.state.map { it.isLogin }
-                    .collect{
-                        if(!it){
+                    .collect {
+                        if (!it) {
                             findNavController().navigate(R.id.nav_home_to_splash)
                         }
                     }
