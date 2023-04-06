@@ -1,8 +1,13 @@
 package com.wzp.recepicapp.presentation.login
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class LoginViewModel : ViewModel() {
+@HiltViewModel
+class LoginViewModel  @Inject constructor(
+
+) : ViewModel() {
 
 
     fun checkLogin(name:String, password:String){
